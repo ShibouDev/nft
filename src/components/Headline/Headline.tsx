@@ -13,7 +13,6 @@ import hands from "../assets/image/hands.png";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 import "./particle.style.css";
-import Marquee from 'react-double-marquee';
 interface Particle {
   width?: string;
   height?: string;
@@ -24,7 +23,6 @@ const Headline: FC = () => {
   }, []);
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {
-      await console.log(container);
     },
     []
   );
@@ -114,7 +112,6 @@ const Headline: FC = () => {
         <img src={hands} alt="" />
       </ContentRight>
       <BottomMarque>
-        <Marquee speed={0.04}>new way to reach the new fan</Marquee>
       </BottomMarque>
     </HeadlineWrapper>
     </>

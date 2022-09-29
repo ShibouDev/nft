@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const HeadlineWrapper = styled.div`
 display: flex;
 padding-top: 170px;
-align-items: center;
+align-items: left;
 margin-left: 40px;
 height: 100%;
 overflow: hidden;
