@@ -1,0 +1,40 @@
+.headline {
+  display: flex;
+  padding-top: 170px;
+  align-items: center;
+  margin-left: 40px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+
+  &_contentLeft {
+    max-width: 890px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    &_powered {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      color: #fff;
+      margin-top: 40px;
+    }
+  }
+
+  &_contentRight {
+    z-index: -10;
+    position: fixed;
+    left: 1200px;
+    top: 50px;
+  }
+
+  &_marque {
+    display: flex;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    width: 100%;
+  }
+}

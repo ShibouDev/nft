@@ -1,39 +1,14 @@
-import React, { FC, useCallback } from "react";
-import {
-  HeadlineWrapper,
-  ContentLeft,
-  Powered,
-  ContentRight,
-  BottomMarque,
-} from "./headline.style";
-import TitleUp from "../assets/block/Text/Text";
-import TitleDown from "../assets/block/Text/Text";
-import Description from "../assets/block/Text/Text";
+import React from "react";
 import hands from "../assets/image/hands.png";
 import Particles from "react-particles";
-import { loadFull } from "tsparticles";
 import "./particle.style.css";
-import Marquee from 'react-double-marquee';
-interface Particle {
-  width?: string;
-  height?: string;
-}
-const Headline: FC = () => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
-  }, []);
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      await console.log(container);
-    },
-    []
-  );
+import styles from "./headline.module.scss"
+import {TitleUp, TitleDown, Desc} from "../assets/block/Text/Text"
+const Headline = () => {
   return (
     <>
-      <Particles<Particle>
+      <Particles
         id="tsparticles"
-        init={particlesInit}
-        loaded={particlesLoaded}
         width={100}
         height={100}
         className="particles"
@@ -101,22 +76,21 @@ const Headline: FC = () => {
           detectRetina: true,
         }}
       />
-    <HeadlineWrapper>
-      <ContentLeft>
-        <TitleUp textTitleUp="Music for NFT creators." />
-        <TitleDown textTitleDown="Digital Music for fans." />
-        <Description description="Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers." />
-        <Powered>
-          <p>Powered by</p>
-        </Powered>
-      </ContentLeft>
-      <ContentRight>
+    <div className={styles.headline}>
+      <div className={styles.headline_contentLeft}>
+        <TitleUp text="Music for NFT creators." />
+        <TitleDown text="Digital Music for fans." />
+        <Desc text="Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers." />
+        <div className={styles.headline_contentLeft_powered}>
+          Powered by
+          </div>
+        </div>
+      <div className={styles.headline_contentRight}>
         <img src={hands} alt="" />
-      </ContentRight>
-      <BottomMarque>
-        <Marquee speed={0.04}>new way to reach the new fan</Marquee>
-      </BottomMarque>
-    </HeadlineWrapper>
+      </div>
+      <div className={styles.headline_marque}>
+      </div>
+      </div>
     </>
   );
 };

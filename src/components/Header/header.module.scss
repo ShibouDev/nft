@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    &_container {
+        backdrop-filter: blur(20px);
+        padding: 28px 41px 28px 41px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+        &_logo {
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            font-weight: 600;
+            font-size: 20px;
+            margin: 0;
+
+            &__text {
+                margin: 0;
+                font-weight: 600;
+
+                &__bottom {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &_nav {
+            text-transform: uppercase;
+            color: #fff;
+            display: flex;
+
+            &__text {
+                &:hover {
+                    border-bottom: 1px solid #fff;
+                }
+
+                cursor: pointer;
+                margin-right: 42px;
+                font-size: 16px;
+            }
+        }
+
+        &_socialIcon {
+            display: flex;
+
+            &>svg {
+                &:not(:last-child) {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+}
