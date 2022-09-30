@@ -41,9 +41,9 @@ const Header = () => {
              </>
                 : <>
                  {open ? 
-                    <FontAwesomeIcon icon={faBars} color="#fff" size="xl" onClick={burgerOpen()}></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faBars} color="#fff" size="xl" onClick={burgerOpen}></FontAwesomeIcon>
                  : 
-                    <FontAwesomeIcon icon={faXmark} color="#fff" size="xl" onClick={burgerOpen()}></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faXmark} color="#fff" size="xl" onClick={burgerOpen}></FontAwesomeIcon>
                 }
                 </>}
                

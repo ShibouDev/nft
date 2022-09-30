@@ -5,6 +5,7 @@ import "./particle.style.css";
 import styles from "./headline.module.scss"
 import {TitleUp, TitleDown, Desc} from "../assets/block/Text/Text"
 import { loadFull } from "tsparticles";
+import Fade from 'react-reveal/Fade'
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
@@ -87,9 +88,11 @@ const particlesLoaded = useCallback(async (container) => {
       />
     <div className={styles.headline}>
       <div className={styles.headline_contentLeft}>
+        <Fade>
         <TitleUp text="Music for NFT creators." />
         <TitleDown text="Digital Music for fans." />
         <Desc text="Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers." />
+        </Fade>
         <div className={styles.headline_contentLeft_powered}>
           Powered by
           </div>
