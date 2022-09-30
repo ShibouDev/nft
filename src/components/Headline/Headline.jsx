@@ -1,14 +1,23 @@
-import React from "react";
+import React, {useCallback} from "react";
 import hands from "../assets/image/hands.png";
 import Particles from "react-particles";
 import "./particle.style.css";
 import styles from "./headline.module.scss"
 import {TitleUp, TitleDown, Desc} from "../assets/block/Text/Text"
+import { loadFull } from "tsparticles";
 const Headline = () => {
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+}, []);
+
+const particlesLoaded = useCallback(async (container) => {
+}, []);
   return (
     <>
       <Particles
         id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
         width={100}
         height={100}
         className="particles"
