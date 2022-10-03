@@ -100,7 +100,7 @@ const Headline = () => {
               Powered by
               <Solana />
             </div>
-            <ButtonHovered text="Discover More"/>
+            <ButtonHovered text="Discover More" small hovered/>
           </div>
         </div>
         <div className={styles.headline_contentRight}>
