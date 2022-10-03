@@ -1,0 +1,19 @@
+.button{
+    display: flex;
+&__hovered{
+    color: #fff;
+    width: 200px;
+    height: 72px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    font-size: 18px;
+    font-weight: 200;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    :last-child {
+        margin-left: 10px;
+    }
+}
+}

@@ -13,14 +13,19 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-
+    &_bottom{
+      display: flex;
     &_powered {
       display: flex;
       flex-direction: column;
       font-size: 13px;
       color: #fff;
       margin-top: 40px;
+      :last-child {
+        margin-top: 7px;
+      }
     }
+  }
   }
 
   &_contentRight {

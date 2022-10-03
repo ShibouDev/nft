@@ -1,18 +1,20 @@
-import React, {useCallback} from "react";
+import React, { useCallback } from "react";
 import hands from "../assets/image/hands.png";
 import Particles from "react-particles";
 import "./particle.style.css";
 import styles from "./headline.module.scss"
-import {TitleUp, TitleDown, Desc} from "../assets/block/Text/Text"
+import { TitleUp, TitleDown, Desc } from "../assets/block/Text/Text"
 import { loadFull } from "tsparticles";
 import Fade from 'react-reveal/Fade'
+import { Solana } from "../SvgImporter"
+import { ButtonHovered } from "../assets/block/Button/Button"
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
-}, []);
+  }, []);
 
-const particlesLoaded = useCallback(async (container) => {
-}, []);
+  const particlesLoaded = useCallback(async (container) => {
+  }, []);
   return (
     <>
       <Particles
@@ -86,22 +88,26 @@ const particlesLoaded = useCallback(async (container) => {
           detectRetina: true,
         }}
       />
-    <div className={styles.headline}>
-      <div className={styles.headline_contentLeft}>
-        <Fade>
-        <TitleUp text="Music for NFT creators." />
-        <TitleDown text="Digital Music for fans." />
-        <Desc text="Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers." />
-        </Fade>
-        <div className={styles.headline_contentLeft_powered}>
-          Powered by
+      <div className={styles.headline}>
+        <div className={styles.headline_contentLeft}>
+          <Fade>
+            <TitleUp text="Music for NFT creators." />
+            <TitleDown text="Digital Music for fans." />
+            <Desc text="Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers." />
+          </Fade>
+          <div className={styles.headline_contentLeft_bottom}>
+            <div className={styles.headline_contentLeft_bottom_powered}>
+              Powered by
+              <Solana />
+            </div>
+            <ButtonHovered text="Discover More"/>
           </div>
         </div>
-      <div className={styles.headline_contentRight}>
-        <img src={hands} alt="" />
-      </div>
-      <div className={styles.headline_marque}>
-      </div>
+        <div className={styles.headline_contentRight}>
+          <img src={hands} alt="" />
+        </div>
+        <div className={styles.headline_marque}>
+        </div>
       </div>
     </>
   );
