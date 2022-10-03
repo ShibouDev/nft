@@ -1,0 +1,20 @@
+.button{
+    color: #fff;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    font-size: 18px;
+    font-weight: 200;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.small {
+    width: 200px;
+    text-align: center;
+    height: 50px;
+    align-items: center;
+}
