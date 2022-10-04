@@ -6,8 +6,9 @@ import styles from "./headline.module.scss"
 import { TitleUp, TitleDown, Desc } from "../assets/block/Text/Text"
 import { loadFull } from "tsparticles";
 import Fade from 'react-reveal/Fade'
-import { Solana } from "../SvgImporter"
+import { Solana, Globe } from "../SvgImporter"
 import { ButtonHovered } from "../assets/block/Button/Button"
+import Ticker from "react-ticker";
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
@@ -101,16 +102,22 @@ const Headline = () => {
               <Solana />
             </div>
             <div className={styles.headline_contentLeft_bottom__button}>
-            <ButtonHovered text="Discover More" small hovered/>
+              <ButtonHovered text="Discover More" small hovered />
             </div>
           </div>
         </div>
         <div className={styles.headline_contentRight}>
           <img src={hands} alt="" />
         </div>
-        <div className={styles.headline_marque}>
-        </div>
       </div>
+        <Ticker>
+          {() => (
+            <div className={styles.marque}>
+              <p className={styles.marque__text}>new way to reach the new fan</p>
+              <Globe />
+              </div>
+          )}
+        </Ticker>
     </>
   );
 };

@@ -39,11 +39,21 @@
     top: 50px;
   }
 
-  &_marque {
-    display: flex;
-    color: #fff;
-    font-size: 24px;
-    font-weight: 300;
-    width: 100%;
+}
+.marque {
+  display: flex;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  align-items: center;
+  height: 76px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  text-transform:  uppercase;
+  margin-top: 270px;
+  :nth-child(2n){
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
