@@ -1,3 +1,4 @@
+$mobile: 790px;
 .headline {
   display: flex;
   padding-top: 170px;
@@ -7,16 +8,23 @@
   overflow: hidden;
   position: relative;
   flex-direction: column;
-
+  
   &_contentLeft {
     max-width: 890px;
     display: flex;
     flex-direction: column;
     justify-content: left;
+    @media screen and (max-width: $mobile){
+    text-align: center;
+    }
+    
     &_bottom{
       display: flex;
       align-items: center;
       margin-top: 40px;
+      @media screen and (max-width: $mobile){
+        justify-content: center;
+      }
     &_powered {
       display: flex;
       flex-direction: column;

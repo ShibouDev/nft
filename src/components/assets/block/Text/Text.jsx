@@ -5,9 +5,10 @@ import GlitchText from "react-glitch-effect/core/GlitchText"
 export const TitleUp = (props) => {
     return (
         <GlitchText
-          color1={"#FB03F5"}
+          color1={"#ffb8fe"}
           color2="#AA9CFF"
           duration="5000"
+          onHover
           >
         <div className={styles.titleUp}>{props.text}</div>
         </GlitchText>
@@ -16,9 +17,11 @@ export const TitleUp = (props) => {
 export const TitleDown = (props) => {
     return (
         <GlitchText
-          color1={"#FB03F5"}
+          color1={"#ffb8fe"}
           color2="#AA9CFF"
-          duration="5000">
+          duration="5000"
+          onHover
+          >
         <div className={styles.titleDown}>{props.text}</div>
         </GlitchText>
     )
