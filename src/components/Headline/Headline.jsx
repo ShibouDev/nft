@@ -9,7 +9,6 @@ import Fade from 'react-reveal/Fade'
 import { Solana, Globe } from "../SvgImporter"
 import { ButtonHovered } from "../assets/block/Button/Button"
 import Ticker from "react-ticker";
-import GlitchText from "react-glitch-effect/core/GlitchText"
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);

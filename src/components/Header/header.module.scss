@@ -46,8 +46,8 @@
 
         &_socialIcon {
             display: flex;
-
             &>svg {
+                cursor: pointer;
                 &:not(:last-child) {
                     margin-right: 30px;
                 }
