@@ -8,6 +8,9 @@ $mobile: 790px;
   overflow: hidden;
   position: relative;
   flex-direction: column;
+  @media screen and (max-width: $mobile){
+    margin-left: 0;
+  }
   
   &_contentLeft {
     max-width: 890px;
@@ -60,6 +63,7 @@ $mobile: 790px;
   width: 100%;
   text-transform:  uppercase;
   margin-top: 270px;
+  white-space: nowrap;
   :nth-child(2n){
     margin-left: 10px;
     margin-right: 10px;
