@@ -9,6 +9,7 @@ import Fade from 'react-reveal/Fade'
 import { Solana, Globe } from "../SvgImporter"
 import { ButtonHovered } from "../assets/block/Button/Button"
 import Ticker from "react-ticker";
+import Playlist from "../assets/block/Playlist/Playlist";
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
@@ -96,6 +97,7 @@ const Headline = () => {
             <TitleDown text="Digital Music for fans." />
             <Desc text="Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers." />
           </Fade>
+          <Playlist/>
           <div className={styles.headline_contentLeft_bottom}>
             <div className={styles.headline_contentLeft_bottom_powered}>
               Powered by
