@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade'
 import { Solana, Globe } from "../SvgImporter"
 import { ButtonHovered } from "../assets/block/Button/Button"
 import Ticker from "react-ticker";
-import Playlist from "../assets/block/Playlist/Playlist";
+import {Playlist} from "../assets/block/Playlist/Playlist";
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
