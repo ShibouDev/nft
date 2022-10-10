@@ -6,6 +6,6 @@ const playlistdata = [
         price: 0.3234,
         tokens: 16,
         genre: 'Pop',
-    }
+    },
 ]
 export default [...playlistdata]
