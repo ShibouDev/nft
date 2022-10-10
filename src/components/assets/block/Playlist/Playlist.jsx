@@ -3,10 +3,14 @@ import styles from "./playlist.module.scss"
 import ReactAudioPlayer from 'react-audio-player';
 import playlistdata from '../../data/playlist'
 import { ButtonHovered } from "../Button/Button"
-import classNames from "classnames"
+import cn from "classnames"
+import cnBind from 'classnames/bind'
+
+const cx = cnBind(styles)
 
 export const Playlist = (props) => {
-    const playlistClass = classNames({
+    const { list } = props
+    const playlistClass = cn({
         'small': props.small
     })
     return (
@@ -17,7 +21,7 @@ export const Playlist = (props) => {
                         <img className={styles.playlist_container__image} src={el.image}></img>
                         <div className={styles.playlist_container__title}>{el.name}</div>
                         {props.small ?
-                            <div className={styles.playlist_container_info}>
+                            <div className={playlistClass}>
                                 <div className={styles.playlist_container_info__price}>{el.price}</div>
                             </div>
                             :
