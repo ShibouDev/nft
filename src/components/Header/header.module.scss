@@ -45,15 +45,24 @@
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
+                :nth-child(1n) {
+                    font-size: 32px;
+                    margin-top: 20px;
+                }
             }
             &__text {
                 &:hover {
                     border-bottom: 1px solid #fff;
                 }
-
                 cursor: pointer;
                 margin-right: 42px;
                 font-size: 16px;
+                &__open {
+                    cursor: pointer;
+                    &:hover {
+                        border-bottom: 1px solid #fff;
+                    }
+                }
             }
         }
 

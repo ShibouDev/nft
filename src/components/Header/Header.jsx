@@ -31,20 +31,30 @@ const Header = () => {
                     <Fade>
                         <div className={open ? styles.header_container_nav__open : styles.header_container_nav}>
                             {navEl.map((el) =>
-                                <div className={styles.header_container_nav__text}>{el}</div>
+                                <div className={open ? styles.header_container_nav__text__open : styles.header_container_nav__text}>{el}</div>
                             )}
+                            {open ?
+                                <div className={styles.header_container_socialIcon}>
+                                    <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
+                                </div>
+                                : ''
+                            }
                         </div>
-                        <div className={styles.header_container_socialIcon}>
-                            <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
-                        </div>
-                    {open ? <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} /> : ''}
+                        {!open ?
+                            <div className={styles.header_container_socialIcon}>
+                                <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
+                            </div>
+                            : ''}
+                        <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
                     </Fade>
                     : <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
                 }
             </div>
-            {open ? <Burger /> : ''}
+            {open && w < mobile ? <Burger /> : setOpen = false}
         </div>
     );
 }
