@@ -3,6 +3,7 @@ import { CSSTransitionGroup } from 'react-transition-group'
 import Fade from 'react-reveal/Fade'
 import './animate.css'
 export const Burger = (props) => {
+const navEl = ['Marketplace', 'About', 'Resources', 'Faq']
     return (
         <Fade>
         <CSSTransitionGroup
@@ -11,7 +12,11 @@ export const Burger = (props) => {
       transitionAppearTimeout={500}
       transitionEnter={false}
       transitionLeave={false}>
-       <div className={styles.burger}></div>
+       <div className={styles.burger}>
+       {navEl.map((el) =>
+                     <div className={styles.burger_nav}>{el}</div>
+                 )}
+       </div>
        </CSSTransitionGroup>
        </Fade>
     )
