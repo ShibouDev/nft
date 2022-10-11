@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import Hamburger from 'hamburger-react'
 import {Burger} from '../assets/block/BurgerMenu/Burger';
+import Fade from 'react-reveal/Fade'
 const Header = () => {
     // Functions
     const [w, setW] = useState(window.innerWidth)
@@ -26,9 +27,9 @@ const Header = () => {
                     <div className={styles.header_container_logo__text}>Music</div>
                     <div className={styles.header_container_logo__text_bottom}>NFT Platform</div>
                 </div>
-                {w > mobile ?
-                <>
-                 <div className={styles.header_container_nav}>
+                {w > mobile || open ?
+                <Fade>
+                 <div className={open ? styles.header_container_nav__open : styles.header_container_nav}>
                  {navEl.map((el) =>
                      <div className={styles.header_container_nav__text}>{el}</div>
                  )}
@@ -38,7 +39,7 @@ const Header = () => {
                  <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
                  <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
              </div>
-             </>
+             </Fade>
                 : <Hamburger toggled={open} toggle={setOpen} color="white" onClick = {flowhidden()}/>
             }
             </div>

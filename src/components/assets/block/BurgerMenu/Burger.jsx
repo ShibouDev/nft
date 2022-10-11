@@ -13,9 +13,6 @@ const navEl = ['Marketplace', 'About', 'Resources', 'Faq']
       transitionEnter={false}
       transitionLeave={false}>
        <div className={styles.burger}>
-       {navEl.map((el) =>
-                     <div className={styles.burger_nav}>{el}</div>
-                 )}
        </div>
        </CSSTransitionGroup>
        </Fade>

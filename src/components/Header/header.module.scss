@@ -39,7 +39,13 @@
             text-transform: uppercase;
             color: #fff;
             display: flex;
-
+            &__open{
+                align-items: center;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
             &__text {
                 &:hover {
                     border-bottom: 1px solid #fff;
