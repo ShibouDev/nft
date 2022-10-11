@@ -39,6 +39,7 @@ const Header = () => {
                             <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
                             <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
                         </div>
+                    {open ? <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} /> : ''}
                     </Fade>
                     : <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
                 }
