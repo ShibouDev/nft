@@ -1,8 +1,10 @@
 import styles from "./burder.module.scss";
 import { CSSTransitionGroup } from 'react-transition-group'
+import Fade from 'react-reveal/Fade'
 import './animate.css'
 export const Burger = (props) => {
     return (
+        <Fade>
         <CSSTransitionGroup
       transitionName="example"
       transitionAppear={true}
@@ -11,5 +13,6 @@ export const Burger = (props) => {
       transitionLeave={false}>
        <div className={styles.burger}></div>
        </CSSTransitionGroup>
+       </Fade>
     )
 }

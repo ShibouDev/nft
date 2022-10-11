@@ -9,7 +9,15 @@
         justify-content: space-between;
         width: 100%;
         align-items: center;
-
+        &__open{
+            height: 100vh;
+            backdrop-filter: blur(20px);
+            padding: 28px 41px 28px 41px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
         &_logo {
             display: flex;
             flex-direction: column;

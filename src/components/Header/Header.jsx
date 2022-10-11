@@ -16,9 +16,12 @@ const Header = () => {
     //Variables
     const mobile = 790
     const navEl = ['Marketplace', 'About', 'Resources', 'Faq']
+    const flowhidden = () => {
+        open ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto" 
+    }
     return (
         <div className={styles.header}>
-            <div className={styles.header_container}>
+            <div className={open ? styles.header_container__open : styles.header_container}>
                 <div className={styles.header_container_logo}>
                     <div className={styles.header_container_logo__text}>Music</div>
                     <div className={styles.header_container_logo__text_bottom}>NFT Platform</div>
@@ -36,10 +39,10 @@ const Header = () => {
                  <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
              </div>
              </>
-                : <Hamburger toggled={open} toggle={setOpen} color="white"/>
+                : <Hamburger toggled={open} toggle={setOpen} color="white" onClick = {flowhidden()}/>
             }
-            {open ?  <Burger/> : console.log('close') }
             </div>
+            {open ?  <Burger/> : ''}
         </div>
     );
 }
