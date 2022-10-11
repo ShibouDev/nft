@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "./header.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import Hamburger from 'hamburger-react'
-import {Burger} from '../assets/block/BurgerMenu/Burger';
+import { Burger } from '../assets/block/BurgerMenu/Burger';
 import Fade from 'react-reveal/Fade'
 const Header = () => {
     // Functions
@@ -18,7 +18,7 @@ const Header = () => {
     const mobile = 790
     const navEl = ['Marketplace', 'About', 'Resources', 'Faq']
     const flowhidden = () => {
-        open ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto" 
+        open ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
     }
     return (
         <div className={styles.header}>
@@ -28,22 +28,22 @@ const Header = () => {
                     <div className={styles.header_container_logo__text_bottom}>NFT Platform</div>
                 </div>
                 {w > mobile || open ?
-                <Fade>
-                 <div className={open ? styles.header_container_nav__open : styles.header_container_nav}>
-                 {navEl.map((el) =>
-                     <div className={styles.header_container_nav__text}>{el}</div>
-                 )}
-             </div>
-             <div className={styles.header_container_socialIcon}>
-                 <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
-                 <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
-                 <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
-             </div>
-             </Fade>
-                : <Hamburger toggled={open} toggle={setOpen} color="white" onClick = {flowhidden()}/>
-            }
+                    <Fade>
+                        <div className={open ? styles.header_container_nav__open : styles.header_container_nav}>
+                            {navEl.map((el) =>
+                                <div className={styles.header_container_nav__text}>{el}</div>
+                            )}
+                        </div>
+                        <div className={styles.header_container_socialIcon}>
+                            <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
+                        </div>
+                    </Fade>
+                    : <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
+                }
             </div>
-            {open ?  <Burger/> : ''}
+            {open ? <Burger /> : ''}
         </div>
     );
 }

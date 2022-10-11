@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade'
 import { Solana, Globe } from "../SvgImporter"
 import { ButtonHovered } from "../assets/block/Button/Button"
 import Ticker from "react-ticker";
-import {Playlist} from "../assets/block/Playlist/Playlist";
+import { Playlist } from "../assets/block/Playlist/Playlist";
 const Headline = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
@@ -111,14 +111,14 @@ const Headline = () => {
           <img src={hands} alt="" />
         </div>
       </div>
-        <Ticker>
-          {() => (
-            <div className={styles.marque}>
-              <p className={styles.marque__text}>new way to reach the new fan</p>
-              <Globe />
-              </div>
-          )}
-        </Ticker>
+      <Ticker>
+        {() => (
+          <div className={styles.marque}>
+            <p className={styles.marque__text}>new way to reach the new fan</p>
+            <Globe />
+          </div>
+        )}
+      </Ticker>
     </>
   );
 };
