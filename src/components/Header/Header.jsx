@@ -20,6 +20,11 @@ const Header = () => {
     const flowhidden = () => {
         open ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
     }
+    useEffect(() => {
+        if(w > mobile){
+            setOpen(false)
+        }
+    })
     return (
         <div className={styles.header}>
             <div className={open ? styles.header_container__open : styles.header_container}>
@@ -49,12 +54,12 @@ const Header = () => {
                                 <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
                             </div>
                             : ''}
-                        <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
+                        {w < mobile ? <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} /> : ''}
                     </Fade>
                     : <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
                 }
             </div>
-            {open && w < mobile ? <Burger /> : setOpen = false}
+            {open && w < mobile ? <Burger /> : ''}
         </div>
     );
 }
