@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from "./header.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
@@ -11,6 +11,7 @@ const Header = () => {
     // Functions
     const [w, setW] = useState(window.innerWidth)
     const [open, setOpen] = useState(false)
+    const [showQr, setShowQr] = useState(false)
     useEffect(() => {
         window.addEventListener('resize', () => {
             setW(window.innerWidth)
@@ -27,18 +28,33 @@ const Header = () => {
             setOpen(false)
         }
     })
-    const qrgenerate = (node) => {
-        new QRious({
-            background: "white",
-			backgroundAlpha: 1,
-			foreground: "black",
-			foregroundAlpha: 1,
-			level: "H",
-			padding: null,
-			size: 172,
-			value: window.location.href,
-			element: node,
-        })
+    const ViewQr = () => {
+    const canvas = useRef(null)
+    useEffect(() => {
+        if(canvas != null && canvas.current != null){
+            let qr = new QRious({
+                background: "white",
+                backgroundAlpha: 1,
+                foreground: "black",
+                foregroundAlpha: 1,
+                level: "m",
+                padding: null,
+                size: 172,
+                value: window.location.href,
+                element: canvas.current,
+            })
+        }
+    })
+        return (
+            <div className={styles.qrPopup} onClick={() => setShowQr(false)}>
+                <div className={styles.qrPopup_wrapper}>
+                    <div className={styles.qrPopup_wrapper_title}>
+                    Scan on your phone for copy link
+                    </div>
+			        <div class={styles.qrPopup_wrapper_icon}><canvas ref={canvas}/></div>
+                </div>
+            </div>
+        )
     }
     return (
         <div className={styles.header}>
@@ -58,7 +74,8 @@ const Header = () => {
                                     <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
                                     <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
                                     <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
-                                    <QR/>
+                                    <QR onClick={() => setShowQr(prevState => !prevState)}/>
+                                    {showQr && <ViewQr/>}
                                 </div>
                                 : ''
                             }

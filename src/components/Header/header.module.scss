@@ -77,3 +77,53 @@
         }
     }
 }
+.qrPopup {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(29, 29, 29, 0.3);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    &_wrapper {
+        padding: 20px 31px;
+        background: rgb(24, 24, 24);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        &_title {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 20px;
+            max-width: 277px;
+            width: 100%;
+            text-align: center;
+            .icon_title {
+                width: 27px;
+                height: 14px;
+                display: inline-block;
+                margin-left: 5px;
+                position: relative;
+                :global(svg) {
+                    position: absolute;
+                    left: 0;
+                    top: 2px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        &_icon {
+            margin-bottom: 15px;
+            // width: 120px;
+            // height: 120px;
+        }
+    }}
