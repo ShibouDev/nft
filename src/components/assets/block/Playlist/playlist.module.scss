@@ -1,0 +1,22 @@
+.playlist{
+    width: 400px;
+    height: 490px;
+    &_container{
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        &__image{
+            width: 350px;
+            height: 290px;
+        }
+        &_info{
+            display: flex;
+            justify-content: space-between;
+        }
+        &_twobtn{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    
+}
