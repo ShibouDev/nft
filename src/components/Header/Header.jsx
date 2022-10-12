@@ -5,6 +5,8 @@ import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-sv
 import Hamburger from 'hamburger-react'
 import { Burger } from '../assets/block/BurgerMenu/Burger';
 import Fade from 'react-reveal/Fade'
+import {QR} from '../SvgImporter'
+import QRious from "qrious";
 const Header = () => {
     // Functions
     const [w, setW] = useState(window.innerWidth)
@@ -25,6 +27,19 @@ const Header = () => {
             setOpen(false)
         }
     })
+    const qrgenerate = (node) => {
+        new QRious({
+            background: "white",
+			backgroundAlpha: 1,
+			foreground: "black",
+			foregroundAlpha: 1,
+			level: "H",
+			padding: null,
+			size: 172,
+			value: window.location.href,
+			element: node,
+        })
+    }
     return (
         <div className={styles.header}>
             <div className={open ? styles.header_container__open : styles.header_container}>
@@ -43,6 +58,7 @@ const Header = () => {
                                     <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
                                     <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
                                     <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
+                                    <QR/>
                                 </div>
                                 : ''
                             }
