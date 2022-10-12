@@ -1,0 +1,16 @@
+$mobile: 790px;
+.howdowork{
+    margin-top: 90px;
+    width: 100%;
+    height: 100%;
+    @media screen and (max-width: $mobile){
+        text-align: center;
+    }
+    &_info{
+        max-width: 690px;
+        margin-left: 20px;
+        @media screen and (max-width: $mobile){
+            margin-left: 0;
+        }
+    }
+}

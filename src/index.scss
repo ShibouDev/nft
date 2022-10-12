@@ -10,7 +10,7 @@ code {
 }
 
 .PurpleCircle {
-    position: fixed;
+    position: absolute;
     width: 600px;
     height: 600px;
     background: linear-gradient(90deg, #FB03F5, #AA9CFF);
@@ -19,6 +19,12 @@ code {
     border-radius: 50%;
     z-index: -10;
     filter: blur(140px)
+}
+@media screen and (max-width: 768px) {
+    .PurpleCircle{
+        width: 375px;
+        height: 600px;
+    }
 }
 ::-webkit-scrollbar{
     background-color: #0A0A0A;

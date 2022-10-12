@@ -45,9 +45,11 @@ $mobile: 790px;
 
   &_contentRight {
     z-index: -10;
-    position: fixed;
+    position: absolute;
     left: 1200px;
     top: 50px;
+    width: 300px;
+    height: 300px;
   }
 
 }

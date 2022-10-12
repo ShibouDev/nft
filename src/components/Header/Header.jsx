@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import Hamburger from 'hamburger-react'
 import {Burger} from '../assets/block/BurgerMenu/Burger';
-import Modal from '@mui/material/Modal'
 const Header = () => {
     // Functions
     const [w, setW] = useState(window.innerWidth)
