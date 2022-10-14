@@ -46,6 +46,7 @@ const Header = () => {
         }
     })
         return (
+            <Fade>
             <div className={styles.qrPopup} onClick={() => setShowQr(false)}>
                 <div className={styles.qrPopup_wrapper}>
                     <div className={styles.qrPopup_wrapper_title}>
@@ -54,6 +55,7 @@ const Header = () => {
 			        <div class={styles.qrPopup_wrapper_icon}><canvas ref={canvas}/></div>
                 </div>
             </div>
+            </Fade>
         )
     }
     return (

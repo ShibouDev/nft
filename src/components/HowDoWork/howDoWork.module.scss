@@ -1,16 +1,92 @@
 $mobile: 790px;
-.howdowork{
+
+.howdowork {
     margin-top: 90px;
     width: 100%;
     height: 100%;
-    @media screen and (max-width: $mobile){
+
+    @media screen and (max-width: $mobile) {
         text-align: center;
     }
-    &_info{
+
+    &_info {
         max-width: 690px;
         margin-left: 20px;
-        @media screen and (max-width: $mobile){
+
+        @media screen and (max-width: $mobile) {
             margin-left: 0;
         }
     }
+
+    &_carousel {
+        touch-action: none;
+        display: flex;
+        height: 568px;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+
+        &_drag {
+            position: relative;
+            display: flex;
+            margin: auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg);
+
+            &_spin {
+                position: relative;
+                display: flex;
+                margin: auto;
+                transform-style: preserve-3d;
+                transform: rotateX(-10deg);
+            }
+
+            a {
+                transform-style: preserve-3d;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 10px 16px rgba(0, 0, 0, 0.1);
+                border: 8px solid #BFE2FF;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                filter: grayscale(50%) contrast(0.8);
+                transition: filter 0.3s;
+            }
+
+            a:hover img {
+                filter: grayscale(0) contrast(1);
+            }
+
+            &_ground {
+                width: 568px;
+                height: 568px;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateX(90deg);
+            }
+            
+        }
+    }
 }
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+@keyframes spinRevert {
+    from {
+        transform: rotateY(360deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}    
