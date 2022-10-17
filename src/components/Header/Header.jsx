@@ -52,7 +52,7 @@ const Header = () => {
                     <div className={styles.qrPopup_wrapper_title}>
                     Scan on your phone for copy link
                     </div>
-			        <div class={styles.qrPopup_wrapper_icon}><canvas ref={canvas}/></div>
+			        <div className={styles.qrPopup_wrapper_icon}><canvas ref={canvas}/></div>
                 </div>
             </div>
             </Fade>
@@ -72,15 +72,15 @@ const Header = () => {
                                 <div className={open ? styles.header_container_nav__text__open : styles.header_container_nav__text}>{el}</div>
                             )}
                             {open ?
-                                <div className={styles.header_container_socialIcon}>
+                                <div className={open ? styles.header_container_socialIcon__open : styles.header_container_socialIcon}>
                                     <FontAwesomeIcon icon={faFacebookF} color="#fff" size="lg"></FontAwesomeIcon>
                                     <FontAwesomeIcon icon={faTwitter} color="#fff" size="lg"></FontAwesomeIcon>
                                     <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
                                     <QR onClick={() => setShowQr(prevState => !prevState)}/>
-                                    {showQr && <ViewQr/>}
                                 </div>
                                 : ''
                             }
+                            {showQr && <ViewQr/>}
                         </div>
                         {!open ?
                             <div className={styles.header_container_socialIcon}>
@@ -89,7 +89,7 @@ const Header = () => {
                                 <FontAwesomeIcon icon={faInstagram} color="#fff" size="lg"></FontAwesomeIcon>
                             </div>
                             : ''}
-                        {w < mobile ? <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} /> : ''}
+                        <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()}/>
                     </Fade>
                     : <Hamburger toggled={open} toggle={setOpen} color="white" onClick={flowhidden()} />
                 }
