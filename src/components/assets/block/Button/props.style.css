@@ -9,7 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
 }
 
 .small {
@@ -17,4 +16,6 @@
     text-align: center;
     height: 50px;
     align-items: center;
+    display: flex;
+    justify-content: center;
 }

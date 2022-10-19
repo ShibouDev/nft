@@ -11,9 +11,8 @@ export const ButtonHovered = (props) => {
     return(
     <div className="button">
     <div className={btnClass}>
-    <div className="text">{props.text}
+    <p className="text">{props.text}</p>
     <ArrowRight style={{marginLeft: "10px"}}/>
-    </div>
     </div>
     </div>
     )
