@@ -2,14 +2,16 @@ import styles from "./howDoWork.module.scss"
 import Fade from 'react-reveal/Fade'
 import { TitleUp, Desc } from "../assets/block/Text/Text"
 import playlistdata from '../assets/data/playlist'
+import { useRef } from "react"
 const HowDoWork = () => {
-    const carousel = document.getElementById("carousel")
+    const carousel = useRef()
+    console.log(carousel)
     const cellCount = 9
     let selectedIndex = 0
 
-    const rotateCarousel = () => {
+    const rotateCarousel = (e) => {
         const angel = selectedIndex / cellCount * -360
-        carousel.style.transform = 'translateZ(-288) rotateY(' + angel + 'deg)'
+        carousel.style.transform = 'translateZ(-88px) rotateY(' + angel + 'deg) rotate3d(0.5, 0.6, 0.5, -45deg)'
     }
     const handleClickBack = () => {
         selectedIndex--;
@@ -29,12 +31,16 @@ const HowDoWork = () => {
                 </Fade>
             </div>
             <div className={styles.howdowork_scene}>
-                <div className={styles.howdowork_scene_carousel} id="carousel">
+                <div className={styles.howdowork_scene_carousel} id="carousel" ref={carousel}>
                     {playlistdata.map((el) => (
                         <img className={styles.howdowork_scene_carousel__cell} src={el.image} alt=""></img>
                     ))}
                 </div>
             </div>
+            <p>
+                <button class="previous-button" id="prev" onClick={handleClickBack}>Previous</button>
+                <button class="next-button" id="next" onClick={handleClickUp}>Next</button>
+            </p>
         </div>
     )
 }
