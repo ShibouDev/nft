@@ -4,14 +4,13 @@ import { TitleUp, Desc } from "../assets/block/Text/Text"
 import playlistdata from '../assets/data/playlist'
 import { useRef } from "react"
 const HowDoWork = () => {
-    const carousel = useRef()
-    console.log(carousel)
+    const carousel = useRef(null)
     const cellCount = 9
     let selectedIndex = 0
-
+    
     const rotateCarousel = (e) => {
         const angel = selectedIndex / cellCount * -360
-        carousel.style.transform = 'translateZ(-88px) rotateY(' + angel + 'deg) rotate3d(0.5, 0.6, 0.5, -45deg)'
+        carousel.style.transform = 'rotateY(' + angel + 'deg) rotate3d(0.5, 0.6, 0.5, -45deg)'
     }
     const handleClickBack = () => {
         selectedIndex--;
