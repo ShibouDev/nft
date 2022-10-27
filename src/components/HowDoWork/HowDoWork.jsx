@@ -2,25 +2,27 @@ import styles from "./howDoWork.module.scss"
 import Fade from 'react-reveal/Fade'
 import { TitleUp, Desc } from "../assets/block/Text/Text"
 import playlistdata from '../assets/data/playlist'
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 const HowDoWork = () => {
     const carousel = useRef(null)
-    const cellCount = 9
-    let selectedIndex = 0
+    useEffect((ref) => {
+        let element = ref?.current
+        const cellCount = 9
+        let selectedIndex = 0
+        const rotateCarousel = () => {
+            const angel = selectedIndex / cellCount * -360
+            element.style.transform = 'rotateY(' + angel + 'deg) rotate3d(0.5, 0.6, 0.5, -45deg)'
+        }
+        const handleClickBack = () => {
+            selectedIndex--;
+            rotateCarousel();
+        }
     
-    const rotateCarousel = (e) => {
-        const angel = selectedIndex / cellCount * -360
-        carousel.style.transform = 'rotateY(' + angel + 'deg) rotate3d(0.5, 0.6, 0.5, -45deg)'
-    }
-    const handleClickBack = () => {
-        selectedIndex--;
-        rotateCarousel();
-    }
-
-    const handleClickUp = () => {
-        selectedIndex++;
-        rotateCarousel();
-    }
+        const handleClickUp = () => {
+            selectedIndex++;
+            rotateCarousel();
+        }
+    }, [])
     return (
         <div className={styles.howdowork}>
             <div className={styles.howdowork_info}>
