@@ -53,7 +53,7 @@ const HowDoWork = () => {
 
     setState({
       ...state,
-      isScrolling: true,
+      isScrolling: false,
     });
   };
 
