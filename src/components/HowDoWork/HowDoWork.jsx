@@ -3,83 +3,77 @@ import Fade from "react-reveal/Fade";
 import { TitleUp, Desc } from "../assets/block/Text/Text";
 import playlistdata from "../assets/data/playlist";
 import { useRef, useState, useEffect } from "react";
+
 const HowDoWork = () => {
   const carousel = useRef(null);
   const [state, setState] = useState({
     isScrolling: false,
-    clientX: 0,
+    clientX: 0, // динамическая
     scroolX: 0,
+    curX: 0, // первая и последняя
+    curPos: 0, // текущая
   });
   const cellCount = 9;
-  let selectedIndex = 0;
-  const rotateCarousel = () => {
-    const angel = (selectedIndex / cellCount) * -360;
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const rotateCarousel = (x) => {
+    // console.log("rotateY(" + x / 1.33 + "deg) rotate3d(0, 1, 0, -45deg)");
+    const r = state.curX + x;
+    console.log({r, curX: state.curX})
+
     carousel.current.style.transform =
-      "rotateY(" + angel + "deg) rotate3d(0, 1, 0, -45deg)";
-  };
-  const handleClickBack = () => {
-    selectedIndex--;
-    rotateCarousel();
-  };
-
-  const handleClickUp = () => {
-    selectedIndex++;
-    rotateCarousel();
-  };
-
-  const OnMouseMove = (e) => {
-    if (carousel && carousel.current && !carousel.current.contains(e.target)) {
-      return;
-    }
-    e.preverentDefault();
-
-    const { clientX, scroolX, isScrolling } = state;
-
-    if (!isScrolling) {
-      carousel.current.scroolLeft = scroolX + e.clientX - clientX;
-
-      setState({
-        ...state,
-        scroolX: scroolX + e.clientX - clientX,
-        clientX: e.clientX,
-      });
-    }
-  };
-  const OnMouseUp = (e) => {
-    if (carousel && carousel.current && !carousel.current.contains(e.target)) {
-      return;
-    }
-    e.preverentDefault();
+      "rotateY(" + r / 1.3333333 + "deg) rotate3d(0, 1, 0, -45deg)";
 
     setState({
       ...state,
+      curX: r,
+    });
+  };
+
+  const OnMouseUp = (e) => {
+    // const angel1 = Math.ceil((state.clientX * cellCount) / -360);
+    // const angel = (angel1 / cellCount) * -360;
+
+    // carousel.current.style.transform =
+    //   "rotateY(" + angel + "deg) rotate3d(0, 1, 0, -45deg)";
+    console.log({
+
+    })
+    setState({
+      ...state,
+      // curX: 0,
+      curPos: e.clientX,
       isScrolling: false,
     });
   };
 
   const OnMouseDown = (e) => {
-    if (carousel && carousel.current && !carousel.current.contains(e.target)) {
-      return;
-    }
-    e.preverentDefault();
+    // setSelectedIndex(selectedIndex + 1)
 
     setState({
       ...state,
+      // curX: 0,
+      curPos: e.clientX,
       isScrolling: true,
+    });
+  };
+
+  useEffect(() => {
+    if (state.isScrolling) {
+      console.log({x: state.clientX - state.curPos});
+      rotateCarousel(state.clientX - state.curPos);
+    }
+  }, [state.clientX]);
+
+  const handlerUpdateClientCoords = (e) => {
+    setState({
+      ...state,
       clientX: e.clientX,
     });
   };
-  useEffect(() => {
-    document.addEventListener("mousedown", OnMouseDown)
-    document.addEventListener("mouseup", OnMouseUp)
-    document.addEventListener("mousemove", OnMouseMove)
-    
-    return () => {
-      document.addEventListener("mousedown", OnMouseDown)
-    document.addEventListener("mouseup", OnMouseUp)
-    document.addEventListener("mousemove", OnMouseMove)
-    }
-  })
+
+  document.addEventListener("mousemove", handlerUpdateClientCoords);
+
   return (
     <div className={styles.howdowork}>
       <div className={styles.howdowork_info}>
@@ -93,27 +87,37 @@ const HowDoWork = () => {
           className={styles.howdowork_scene_carousel}
           id="carousel"
           ref={carousel}
-          onMouseDown={OnMouseDown}
-          onMouseUp={OnMouseUp}
-          onMouseMove={OnMouseMove}
         >
           {playlistdata.map((el) => (
-            <img
+            <div
               className={styles.howdowork_scene_carousel__cell}
-              src={el.image}
-              alt=""
-            ></img>
+              onMouseDown={OnMouseDown}
+              onMouseUp={OnMouseUp}
+              style={{
+                backgroundImage: `url(${el.image})`,
+                width: "150px",
+                height: "150px",
+                objectFit: "cover",
+              }}
+            ></div>
+            //   <img
+            //     className={styles.howdowork_scene_carousel__cell}
+            //     src={el.image}
+            //     alt=""
+            //     onMouseDown={OnMouseDown}
+            // onMouseUp={OnMouseUp}
+            //   ></img>
           ))}
         </div>
       </div>
-      <p>
+      {/* <p>
         <button class="previous-button" id="prev" onClick={handleClickBack}>
           Previous
         </button>
         <button class="next-button" id="next" onClick={handleClickUp}>
           Next
         </button>
-      </p>
+      </p> */}
     </div>
   );
 };

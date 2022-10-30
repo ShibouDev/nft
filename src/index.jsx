@@ -10,5 +10,6 @@ root.render(
   <>
   <App />
   <div className="PurpleCircle"></div>
+  <div className="PurpleCircle1"></div>
   </>
 );
