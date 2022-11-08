@@ -100,24 +100,9 @@ const HowDoWork = () => {
                 objectFit: "cover",
               }}
             ></div>
-            //   <img
-            //     className={styles.howdowork_scene_carousel__cell}
-            //     src={el.image}
-            //     alt=""
-            //     onMouseDown={OnMouseDown}
-            // onMouseUp={OnMouseUp}
-            //   ></img>
           ))}
         </div>
       </div>
-      {/* <p>
-        <button class="previous-button" id="prev" onClick={handleClickBack}>
-          Previous
-        </button>
-        <button class="next-button" id="next" onClick={handleClickUp}>
-          Next
-        </button>
-      </p> */}
     </div>
   );
 };
