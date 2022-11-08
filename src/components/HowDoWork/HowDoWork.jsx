@@ -3,8 +3,9 @@ import Fade from "react-reveal/Fade";
 import { TitleUp, Desc } from "../assets/block/Text/Text";
 import playlistdata from "../assets/data/playlist";
 import { useRef, useState, useEffect } from "react";
-
+import useWindowDimensions from '../GetWidth'
 const HowDoWork = () => {
+  const {width} = useWindowDimensions();
   const carousel = useRef(null);
   const [state, setState] = useState({
     isScrolling: false,
@@ -82,6 +83,7 @@ const HowDoWork = () => {
           <Desc text="NFTs are unique assets stored and tradable on a blockchain. They are, immutable, scarce and publicly verifiable. In the music world, artistes get to sell limited digital content to their fans who pay via crypto. You can now produce any music content that cannot be counterfeited." />
         </Fade>
       </div>
+      {width > 1200 ? 
       <div className={styles.howdowork_scene}>
         <div
           className={styles.howdowork_scene_carousel}
@@ -103,6 +105,7 @@ const HowDoWork = () => {
           ))}
         </div>
       </div>
+      : <div></div>}
     </div>
   );
 };
